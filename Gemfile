@@ -33,7 +33,7 @@ gem 'underscore-rails'
 #Authentication
 gem 'monban'
 gem 'bcrypt', '~> 3.1.7'
-gem 'cancancan'
+gem 'cancancan', '~> 1.9'
 
 group :development do
   gem 'active_record_query_trace'

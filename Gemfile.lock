@@ -217,7 +217,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bullet
-  cancancan
+  cancancan (~> 1.9)
   capybara-webkit
   capybara_minitest_spec
   coffee-rails (~> 4.0.0)
