@@ -1,0 +1,11 @@
+- if @customers.any?
+  %table
+    - @customers.each do |c|
+      %tr
+        %td= c.name
+        %td= c.email
+        %td= c.postal_code
+        %td= c.customer_id
+- else
+  %h2 No customers yet
+  = link_to "Add one now", action: :new
