@@ -1,0 +1,9 @@
+= form_for @category do |f|
+  %div{class: ("error" if @category.errors[:name].any?)}
+    = f.label :name
+    = f.text_field :name
+    - if @category.errors[:name]
+      - @category.errors[:fname].each do |e|
+        %small.error= e
+  %div
+    = f.submit "Create Category"

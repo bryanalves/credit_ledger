@@ -1,0 +1,7 @@
+- if @categories.any?
+  %ul
+    - @categories.each do |c|
+      %li= c.name
+- else
+  %h2 No categories yet
+  = link_to "Add one now", action: :new

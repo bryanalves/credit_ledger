@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   validates :role, inclusion: {in: %w(user admin)}
 
+  has_many :credit_items
+
   def admin?
     role == 'admin'
   end
