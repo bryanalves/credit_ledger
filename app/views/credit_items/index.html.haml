@@ -1,0 +1,17 @@
+%h2 Credit log for #{@customer.name}
+- if @customer.credit_items.any?
+  %table
+    %tr
+      %th Time
+      %th Value
+      %th Category
+      %th Note
+    - @customer.credit_items.each do |ci|
+      %tr
+        %td= ci.created_at
+        %td= ci.value
+        %td= ci.category
+        %td= ci.note
+- else
+  %h2 No entries yet
+  /= link_to "Add one now", action: :new
