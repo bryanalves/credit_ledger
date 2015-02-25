@@ -5,12 +5,19 @@
       %th Email
       %th Postal code
       %th Customer ID
+      %th Balance
+      %th
     - @customers.each do |c|
       %tr
         %td= c.name
         %td= c.email
         %td= c.postal_code
         %td= c.customer_id
+        %td= number_to_currency(c.credit_items.sum(:value))
+        %td
+          = link_to "Credit", customer_credit_items_path(c)
+          |
+          = link_to "Add", new_customer_credit_item_path(c)
 - else
   %h2 No customers yet
   = link_to "Add one now", action: :new
