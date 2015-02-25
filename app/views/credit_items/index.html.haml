@@ -8,9 +8,9 @@
       %th Note
     - @customer.credit_items.each do |ci|
       %tr
-        %td= ci.created_at
+        %td= ci.created_at.to_formatted_s(:long)
         %td= ci.value
-        %td= ci.category
+        %td= ci.category.name
         %td= ci.note
 - else
   %h2 No entries yet
