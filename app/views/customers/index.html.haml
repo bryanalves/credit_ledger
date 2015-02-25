@@ -1,5 +1,10 @@
 - if @customers.any?
   %table
+    %tr
+      %th Name
+      %th Email
+      %th Postal code
+      %th Customer ID
     - @customers.each do |c|
       %tr
         %td= c.name
