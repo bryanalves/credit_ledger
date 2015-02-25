@@ -4,6 +4,7 @@ class Customer < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, format: { with: /@/, message: "is not a valid email" }
+  validates :customer_id, presence: true
 
   has_many :credit_items
 
