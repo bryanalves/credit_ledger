@@ -1,20 +1,21 @@
 %h2 Credit log for #{@customer.name}
-- if @customer.credit_items(true).any?
+- if @credit_items.any?
   %table
     %tr
       %th Time
       %th Value
       %th Category
       %th Note
-    - @customer.credit_items.each do |ci|
+    - @credit_items.each do |ci|
       %tr
         %td= ci.created_at.to_formatted_s(:long)
         %td= ci.value
         %td= ci.category.name
         %td= ci.note
+  = will_paginate @credit_items
 - else
   %h2 No entries yet
   /= link_to "Add one now", action: :new
 %h3 Add entry
-= render partial: 'form', locals: {customer: @customer, credit_item: @credit_item}
+= render partial: 'form', locals: {customer: @customer, credit_item: @new_credit_item}
 

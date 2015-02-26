@@ -2,7 +2,8 @@ class CreditItemsController < ApplicationController
   before_action :find_customer
 
   def index
-    @credit_item = @customer.credit_items.build
+    @new_credit_item = @customer.credit_items.build
+    @credit_items = @customer.credit_items.includes(:category).paginate(page: params[:page], per_page: 10)
   end
 
   def new
