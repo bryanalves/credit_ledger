@@ -2,6 +2,7 @@ class CreditItemsController < ApplicationController
   before_action :find_customer
 
   def index
+    @credit_item = @customer.credit_items.build
   end
 
   def new
@@ -22,7 +23,7 @@ class CreditItemsController < ApplicationController
     @credit_item = @customer.credit_items.build(credit_item_params)
     if @credit_item.valid?
       @credit_item.save!
-      redirect_to customers_path
+      redirect_to customer_credit_items_path(@customer)
     else
       render :new
     end

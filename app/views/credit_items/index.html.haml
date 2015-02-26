@@ -1,5 +1,5 @@
 %h2 Credit log for #{@customer.name}
-- if @customer.credit_items.any?
+- if @customer.credit_items(true).any?
   %table
     %tr
       %th Time
@@ -15,3 +15,6 @@
 - else
   %h2 No entries yet
   /= link_to "Add one now", action: :new
+%h3 Add entry
+= render partial: 'form', locals: {customer: @customer, credit_item: @credit_item}
+
