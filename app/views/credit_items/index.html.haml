@@ -6,12 +6,7 @@
       %th Value
       %th Category
       %th Note
-    - @credit_items.each do |ci|
-      %tr
-        %td= ci.created_at.to_formatted_s(:long)
-        %td= ci.value
-        %td= ci.category.name
-        %td= ci.note
+    = render partial: "credit_item_row", collection: @credit_items, as: :credit_item
   = will_paginate @credit_items
 - else
   %h2 No entries yet
