@@ -7,15 +7,7 @@
       %th Customer ID
       %th Balance
       %th
-    - @customers.each do |c|
-      %tr
-        %td= link_to c.name, customer_credit_items_path(c)
-        %td= c.email
-        %td= c.postal_code
-        %td= c.customer_id
-        %td= number_to_currency(c.balance)
-        %td
-          = link_to "Quick Add", new_customer_credit_item_path(c)
+    = render partial: "customer_row", collection: @customers, as: :customer
   = will_paginate @customers
 - else
   %h2 No customers yet
