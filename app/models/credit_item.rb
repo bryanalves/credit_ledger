@@ -5,4 +5,8 @@ class CreditItem < ActiveRecord::Base
 
   validates :category_id, presence: true
   validates :value, presence: true
+
+  def self.balance
+    sum(:value)
+  end
 end

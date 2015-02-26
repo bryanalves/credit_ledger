@@ -8,12 +8,10 @@ class Customer < ActiveRecord::Base
 
   has_many :credit_items
 
+  delegate :balance, to: :credit_items
+
   def name
     "#{first_name} #{last_name}"
-  end
-
-  def balance
-    credit_items.sum(:value)
   end
 
   private
