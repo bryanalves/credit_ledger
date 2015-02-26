@@ -13,7 +13,7 @@
         %td= c.email
         %td= c.postal_code
         %td= c.customer_id
-        %td= number_to_currency(c.credit_items.sum(:value))
+        %td= number_to_currency(c.balance)
         %td
           = link_to "Quick Add", new_customer_credit_item_path(c)
   = will_paginate @customers

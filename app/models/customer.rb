@@ -12,6 +12,10 @@ class Customer < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def balance
+    credit_items.sum(:value)
+  end
+
   private
 
   def set_view_token
