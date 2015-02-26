@@ -3,7 +3,10 @@ class CreditItemsController < ApplicationController
 
   def index
     @new_credit_item = @customer.credit_items.build
-    @credit_items = @customer.credit_items.includes(:category).paginate(page: params[:page], per_page: 10)
+    @credit_items = @customer.credit_items
+      .includes(:category)
+      .order("updated_at DESC")
+      .paginate(page: params[:page], per_page: 10)
   end
 
   def new
