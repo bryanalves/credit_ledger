@@ -16,6 +16,7 @@
         %td= number_to_currency(c.credit_items.sum(:value))
         %td
           = link_to "Quick Add", new_customer_credit_item_path(c)
+  = will_paginate @customers
 - else
   %h2 No customers yet
   = link_to "Add one now", action: :new

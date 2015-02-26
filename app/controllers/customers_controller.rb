@@ -2,7 +2,7 @@ class CustomersController < ApplicationController
   before_action -> { authorize! :manage, Customer }
 
   def index
-    @customers = Customer.all
+    @customers = Customer.paginate(page: params[:page], per_page: 10)
   end
 
   def new
