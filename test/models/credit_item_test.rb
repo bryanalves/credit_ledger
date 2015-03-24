@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class CreditItemTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  it "creates a credit item" do
+    FactoryGirl.create(:credit_item)
+  end
 end

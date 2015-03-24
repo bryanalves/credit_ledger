@@ -2,5 +2,9 @@
 
 FactoryGirl.define do
   factory :credit_item do
+    user
+    customer
+    category
+    value 2.0
   end
 end
