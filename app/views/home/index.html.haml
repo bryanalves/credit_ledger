@@ -1,8 +1,1 @@
-%ul
-  - if can? :manage, Customer
-    %li= link_to "Manage customers", customers_path
-  - if can? :manage, Category
-    %li= link_to "Manage entry categories", categories_path
-  - if can? :manage, User
-    %li= link_to "Manage users", users_path
 %p Total outstanding balance: #{number_to_currency CreditItem.balance}
