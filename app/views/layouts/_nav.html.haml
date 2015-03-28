@@ -1,7 +1,27 @@
-%ul
-  - if can? :manage, Customer
-    %li= link_to "Manage customers", customers_path
-  - if can? :manage, Category
-    %li= link_to "Manage entry categories", categories_path
-  - if can? :manage, User
-    %li= link_to "Manage users", users_path
+%nav.top-bar{'data-topbar' => true, 'role' => 'navigation'}
+  %ul.title-area
+    %li.name
+      %h1= link_to "Credit Ledger", root_url
+
+    %li.toggle-topbar
+      %a Menu
+
+  %section.top-bar-section
+    %ul.left
+      - if current_user.try!(:admin?)
+        %li.has-dropdown
+          %a Admin
+          %ul.dropdown
+            - if can? :manage, Category
+              %li= link_to "Manage entry categories", categories_path
+            - if can? :manage, User
+              %li= link_to "Manage users", users_path
+      - if can? :manage, Customer
+        %li= link_to "Customers", customers_path
+
+    %ul.right
+      %li
+        - if signed_in?
+          = link_to "Sign out", session_path, method: :delete
+        - else
+          = link_to "Sign in", new_session_path

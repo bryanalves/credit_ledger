@@ -12,13 +12,6 @@
     = csrf_meta_tags
 
   %body
-    %div
-      - if signed_in?
-        = link_to "Sign out", session_path, method: :delete
-      - else
-        = link_to "Sign in", new_session_path
-
-
     = render 'layouts/nav'
     = render 'layouts/messages'
 
