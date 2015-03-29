@@ -8,6 +8,12 @@
 
   %section.top-bar-section
     %ul.left
+      - if can? :manage, Customer
+        %li= link_to "Manage Customers", customers_path
+        %li.has-form
+          = text_field :search, :term, class: 'header_customer_autocomplete', placeholder: 'Customer quick search'
+
+    %ul.right
       - if current_user.try!(:admin?)
         %li.has-dropdown
           %a Admin
@@ -16,13 +22,7 @@
               %li= link_to "Manage entry categories", categories_path
             - if can? :manage, User
               %li= link_to "Manage users", users_path
-      - if can? :manage, Customer
-        %li.divider
-        %li.has-form
-          = text_field :search, :term, class: 'header_customer_autocomplete'
-        %li= link_to "Customers", customers_path
-
-    %ul.right
+      %li.divider
       %li
         - if signed_in?
           = link_to "Sign out", session_path, method: :delete
