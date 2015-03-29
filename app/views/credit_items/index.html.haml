@@ -1,17 +1,23 @@
-%h2 Credit log for #{@customer.name}
-%h3 Balance: #{number_to_currency @customer.balance}
-- if @credit_items.any?
-  %table
-    %tr
-      %th Time
-      %th Value
-      %th Category
-      %th Note
-    = render partial: "credit_item_row", collection: @credit_items, as: :credit_item
-  = will_paginate @credit_items
-- else
-  %h2 No entries yet
-  /= link_to "Add one now", action: :new
-%h3 Add entry
-= render partial: 'form', locals: {customer: @customer, credit_item: @new_credit_item}
+.row
+  .columns.large-12
+    %h4
+      #{@customer.name}
+      %small (Balance: #{number_to_currency @customer.balance})
+    - if @credit_items.any?
+      %table
+        %tr
+          %th Time
+          %th Value
+          %th Category
+          %th Note
+        = render partial: "credit_item_row", collection: @credit_items, as: :credit_item
+      = will_paginate @credit_items
+    - else
+      %h5 No entries yet
+      /= link_to "Add one now", action: :new
+
+    %hr
+
+    %h4 Add entry
+    = render partial: 'form', locals: {customer: @customer, credit_item: @new_credit_item}
 

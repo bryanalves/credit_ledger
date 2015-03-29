@@ -1,24 +1,30 @@
 = form_for [customer, credit_item] do |f|
-  %div{class: ("error" if credit_item.errors[:category].any?)}
-    = f.label :category
-    = f.select :category_id, Category.all.map {|c| [c.name, c.id]}
-    - if credit_item.errors[:category]
-      - credit_item.errors[:category].each do |e|
-        %small.error= e
+  .row
+    .columns.large-6
+      %div{class: ("error" if credit_item.errors[:category].any?)}
+        = f.label :category
+        = f.select :category_id, Category.all.map {|c| [c.name, c.id]}
+        - if credit_item.errors[:category]
+          - credit_item.errors[:category].each do |e|
+            %small.error= e
 
-  %div{class: ("error" if credit_item.errors[:value].any?)}
-    = f.label :value
-    = f.number_field :value
-    - if credit_item.errors[:value]
-      - credit_item.errors[:value].each do |e|
-        %small.error= e
+    .columns.large-6
+      %div{class: ("error" if credit_item.errors[:value].any?)}
+        = f.label :value
+        = f.number_field :value
+        - if credit_item.errors[:value]
+          - credit_item.errors[:value].each do |e|
+            %small.error= e
 
-  %div{class: ("error" if credit_item.errors[:note].any?)}
-    = f.label :note
-    = f.text_area :note
-    - if credit_item.errors[:note]
-      - credit_item.errors[:note].each do |e|
-        %small.error= e
+  .row
+    .columns.large-12
+      %div{class: ("error" if credit_item.errors[:note].any?)}
+        = f.label :note
+        = f.text_area :note
+        - if credit_item.errors[:note]
+          - credit_item.errors[:note].each do |e|
+            %small.error= e
 
-  %div
-    = f.submit "Create"
+  .row
+    .columns.large-12
+      = f.submit "Create", class: 'button small'
