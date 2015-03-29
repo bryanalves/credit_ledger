@@ -1,7 +1,9 @@
-- if @categories.any?
-  %ul
-    - @categories.each do |c|
-      %li= c.name
-- else
-  %h2 No categories yet
-  = link_to "Add one now", action: :new
+.row
+  .columns.large-12
+    - if @categories.any?
+      %ul.panel
+        - @categories.each do |c|
+          %li= c.name
+    - else
+      %h2 No categories yet
+    = link_to "Add Category", {action: :new}, class: 'button small'
