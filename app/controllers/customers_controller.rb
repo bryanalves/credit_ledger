@@ -19,6 +19,10 @@ class CustomersController < ApplicationController
     end
   end
 
+  def search
+    render json: Customer.search(params[:term]).map(&:for_autocomplete).to_json
+  end
+
   private
 
   def customer_params

@@ -22,6 +22,10 @@ class Customer < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def for_autocomplete
+    {label: name, value: id}
+  end
+
   private
 
   def set_view_token
