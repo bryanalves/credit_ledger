@@ -17,6 +17,9 @@
             - if can? :manage, User
               %li= link_to "Manage users", users_path
       - if can? :manage, Customer
+        %li.divider
+        %li.has-form
+          = text_field :search, :term, class: 'header_customer_autocomplete'
         %li= link_to "Customers", customers_path
 
     %ul.right
