@@ -1,5 +1,7 @@
 class CreditItemsController < ApplicationController
   before_action :find_customer
+  before_action -> { authorize! :manage, @customer }, except: :index
+  before_action -> { authorize! :read, @customer }, only: :index
 
   def index
     @new_credit_item = @customer.credit_items.build

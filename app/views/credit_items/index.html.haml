@@ -16,8 +16,9 @@
       %h5 No entries yet
       /= link_to "Add one now", action: :new
 
-    %hr
+    - if can? :manage, @customer
+      %hr
 
-    %h4 Add entry
-    = render partial: 'form', locals: {customer: @customer, credit_item: @new_credit_item}
+      %h4 Add entry
+      = render partial: 'form', locals: {customer: @customer, credit_item: @new_credit_item}
 
