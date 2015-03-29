@@ -1,11 +1,12 @@
-= form_for :session, url: session_path do |f|
-  %div
-    = f.label :email
-    = f.email_field :email
+.row
+  .columns.large-8.large-centered
+    .panel
+      %h4 Sign in
+      = form_for :session, url: session_path do |f|
+        = f.label :email
+        = f.email_field :email
 
-  %div
-    = f.label :password
-    = f.password_field :password
+        = f.label :password
+        = f.password_field :password
 
-  %div
-    = f.submit "Sign in"
+        = f.submit "Sign in", class: 'button small'
