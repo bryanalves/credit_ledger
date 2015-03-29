@@ -1,8 +1,10 @@
 .row
   .columns.large-12
-    %h4
+    %h4.clearfix
       #{@customer.name}
       %small (Balance: #{number_to_currency @customer.balance})
+      %p.right
+        %a{"data-reveal-id" => 'readOnlyInfo'} Share
     - if @credit_items.any?
       %table
         %tr
@@ -14,7 +16,6 @@
       = will_paginate @credit_items
     - else
       %h5 No entries yet
-      /= link_to "Add one now", action: :new
 
     - if can? :manage, @customer
       %hr
@@ -22,3 +23,4 @@
       %h4 Add entry
       = render partial: 'form', locals: {customer: @customer, credit_item: @new_credit_item}
 
+= render partial: 'read_only_modal'

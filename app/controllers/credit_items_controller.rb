@@ -5,6 +5,11 @@ class CreditItemsController < ApplicationController
 
   def index
     @new_credit_item = @customer.credit_items.build
+    @view_qr_code =  RQRCode::QRCode.new(customer_credit_items_url(@customer, view_token: @customer.view_token),
+                                         :size => 12,
+                                         :level => :h)
+                                    .to_img.resize(175, 175)
+
     @credit_items = @customer.credit_items
       .includes(:category)
       .order("updated_at DESC")

@@ -1,0 +1,7 @@
+#readOnlyInfo.reveal-modal.text-center{"data-reveal" => true, "aria-labelledby" => 'modalTitle', "aria-hidden" => "true", role: "dialog"}
+  %a.close-reveal-modal{"aria-label" => "Close"} &#215;
+
+  %h3#modalTitle Read-only information
+
+  %img{src: "data:image/png;base64,#{Base64.encode64(@view_qr_code.to_s)}"}
+  %h5= link_to "Link", customer_credit_items_url(@customer, view_token: @customer.view_token)

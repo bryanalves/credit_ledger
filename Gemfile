@@ -35,6 +35,8 @@ gem 'monban'
 gem 'bcrypt', '~> 3.1.7'
 gem 'cancancan', '~> 1.9'
 
+gem 'rqrcode_png'
+
 group :development do
   gem 'active_record_query_trace'
   gem 'better_errors'
