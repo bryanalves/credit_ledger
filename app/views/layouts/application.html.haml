@@ -13,8 +13,8 @@
 
   %body
     = render 'layouts/nav'
-    = render 'layouts/messages'
     %br
+    = render 'layouts/messages'
     = yield
     = render 'layouts/footer'
     = javascript_include_tag "application", 'data-turbolinks-track' => true
