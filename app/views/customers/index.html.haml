@@ -1,14 +1,18 @@
-- if @customers.any?
-  %table
-    %tr
-      %th Name
-      %th Email
-      %th Postal code
-      %th Customer ID
-      %th Balance
-      %th
-    = render partial: "customer_row", collection: @customers, as: :customer
-  = will_paginate @customers
-- else
-  %h2 No customers yet
-= link_to "Add customer", action: :new
+.row
+  .columns.large-12
+    - if @customers.any?
+      %table
+        %thead
+          %tr
+            %th Name
+            %th Email
+            %th.show-for-large-up Postal code
+            %th Customer ID
+            %th Balance
+            %th.show-for-large-up
+        %tbody
+          = render partial: "customer_row", collection: @customers, as: :customer
+      = will_paginate @customers
+    - else
+      %h2 No customers yet
+    = link_to "Add Customer", {action: :new}, class: 'button small'

@@ -1,8 +1,8 @@
 %tr
   %td= link_to customer.name, customer_credit_items_path(customer)
   %td= customer.email
-  %td= customer.postal_code
+  %td.show-for-large-up= customer.postal_code
   %td= customer.customer_id
   %td= number_to_currency(customer.balance)
-  %td
+  %td.show-for-large-up
     = link_to "Quick Add", new_customer_credit_item_path(customer)
