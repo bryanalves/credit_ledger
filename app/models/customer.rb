@@ -10,6 +10,14 @@ class Customer < ActiveRecord::Base
 
   delegate :balance, to: :credit_items
 
+  def self.search(query)
+    where(
+      arel_table[:first_name].matches("%#{query}%")
+      .or(arel_table[:last_name].matches("%#{query}%"))
+      .or(arel_table[:email].matches("%#{query}%"))
+      ).limit(10)
+  end
+
   def name
     "#{first_name} #{last_name}"
   end
