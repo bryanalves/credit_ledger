@@ -1,24 +1,20 @@
 source 'https://rubygems.org'
 
-ruby '2.1.1'
+gem 'rails', '4.2.7.1'
 
-gem 'rails', '4.1.5'
-
-#Rails
-gem 'jbuilder', '~> 2.0'
+# Rails
 gem 'yajl-ruby'
 
-#Misc
+# Misc
 gem 'stamp'
 
-#Database
+# Database
 gem 'foreigner'
 gem 'sqlite3'
 gem 'will_paginate'
 
-#Assets
+# Assets
 gem 'coffee-rails', '~> 4.0.0'
-#gem 'compass-rails'
 gem 'foundation-rails', '~> 5.4.2.0'
 gem 'haml', '4.0.0'
 gem 'haml-contrib'
@@ -30,7 +26,7 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'underscore-rails'
 
-#Authentication
+# Authentication
 gem 'monban'
 gem 'bcrypt', '~> 3.1.7'
 gem 'cancancan', '~> 1.9'
@@ -46,8 +42,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rack-mini-profiler'
   gem 'rb-fsevent'
-  gem 'spring'
-  gem 'thin'
+  gem 'puma'
 end
 
 group :test do
