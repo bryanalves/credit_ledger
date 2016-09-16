@@ -1,12 +1,14 @@
-.row
-  .columns.large-8.large-centered
-    .panel
-      %h4 Sign in
-      = form_for :session, url: session_path do |f|
-        = f.label :email
-        = f.email_field :email
+.panel.panel-default
+  .panel-body
+    %h4 Sign in
+    = form_for :session, url: session_path do |f|
+      .form-group
+        = f.label :email, class: 'control-label'
+        = f.email_field :email, class: 'form-control'
 
-        = f.label :password
-        = f.password_field :password
+      .form-group
+        = f.label :password, class: 'control-label'
+        = f.password_field :password, class: 'form-control'
 
+      .form-group
         = f.submit "Sign in", class: 'button small'

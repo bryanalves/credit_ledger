@@ -1,10 +1,11 @@
-%footer
-  .panel
+%footer.footer
+  .container
     .row
-      .columns.large-6
-        Copyright &copy; 2015 Bryan Alves. All rights reserved.
-      .columns.large-6
-        %ul.inline-list.right
-          %li= link_to "Home", root_url
-          %li= link_to "Github", 'https://www.github.com/bryanalves'
+      .col-lg-6
+        %p.text-muted
+          Copyright &copy; 2015 Bryan Alves. All rights reserved.
+      .col-lg-6
+        %p.text-muted.pull-right
+          = link_to "Home", root_url
+          = link_to "Github", 'https://www.github.com/bryanalves'
 

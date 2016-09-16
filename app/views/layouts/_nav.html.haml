@@ -1,31 +1,27 @@
-%nav.top-bar{'data-topbar' => true, 'role' => 'navigation'}
-  %ul.title-area
-    %li.name
-      %h1= link_to "Credit Ledger", root_url
+%nav.navbar.navbar-default.navbar-static-top
+  .container
+    .navbar-header
+      = link_to "Credit Ledger", root_url, class: 'navbar-brand'
 
-    %li.toggle-topbar
-      %a Menu
+    #navbar.navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        - if can? :manage, Customer
+          %li= link_to "Manage Customers", customers_path
+      .navbar-form.navbar-left
+        = text_field :search, :term, class: 'header_customer_autocomplete', placeholder: 'Customer quick search'
 
-  %section.top-bar-section
-    %ul.left
-      - if can? :manage, Customer
-        %li= link_to "Manage Customers", customers_path
-        %li.has-form
-          = text_field :search, :term, class: 'header_customer_autocomplete', placeholder: 'Customer quick search'
-
-    %ul.right
-      - if current_user.try!(:admin?)
-        %li.has-dropdown
-          %a Admin
-          %ul.dropdown
-            - if can? :manage, Category
-              %li= link_to "Manage entry categories", categories_path
-            - if can? :manage, User
-              %li= link_to "Manage users", users_path
-        %li.divider
-      %li
+      %ul.nav.navbar-nav.navbar-right
+        - if current_user.try!(:admin?)
+          %li.dropdown
+            %a.dropdown-toggle{role: 'button', 'aria-haspopup' => 'true', 'aria-expanded' => false, data: {toggle: 'dropdown'}}
+              Admin
+              %span.caret
+            %ul.dropdown-menu
+              - if can? :manage, Category
+                %li= link_to "Manage entry categories", categories_path
+              - if can? :manage, User
+                %li= link_to "Manage users", users_path
         - if signed_in?
-          = link_to "Sign out", session_path, method: :delete
+          %li= link_to "Sign out", session_path, method: :delete
         - else
-          = link_to "Sign in", new_session_path
-%br
+          %li= link_to "Sign in", new_session_path

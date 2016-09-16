@@ -1,7 +1,5 @@
-- flash.each do |name, msg|
+- flash.each do |msg_type, msg|
   - if msg.is_a?(String)
-    .row
-      .columns.large-6.large-centered
-        .alert-box.round{data: {alert: true}, class: name.to_s}
-          %div= msg
-          %a.close{href: "#"} &times;
+    .alert.fade.in{class: bootstrap_class_for(msg_type)}
+      %button.close{data: {dismiss: 'alert'}} x
+      =msg

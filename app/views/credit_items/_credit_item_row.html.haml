@@ -1,5 +1,5 @@
 %tr
   %td= credit_item.created_at.to_formatted_s(:long)
   %td= number_to_currency credit_item.value
-  %td= credit_item.category.name
+  %td= credit_item.category.try!(:name) || 'Deleted Category'
   %td= credit_item.note

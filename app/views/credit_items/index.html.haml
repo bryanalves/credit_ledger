@@ -1,26 +1,28 @@
-.row
-  .columns.large-12
-    %h4.clearfix
-      #{@customer.name}
-      %small (Balance: #{number_to_currency @customer.balance})
-      %p.right
-        %a{"data-reveal-id" => 'readOnlyInfo'} Share
-    - if @credit_items.any?
-      %table
-        %tr
-          %th Time
-          %th Value
-          %th Category
-          %th Note
-        = render partial: "credit_item_row", collection: @credit_items, as: :credit_item
-      = will_paginate @credit_items
-    - else
-      %h5 No entries yet
+%h4
+  #{@customer.name}
+  %small (Balance: #{number_to_currency @customer.balance})
+  %p.pull-right
+    %a{data: {toggle: 'modal', target: '#readOnlyInfo'}, href: '#'} Share
 
-    - if can? :manage, @customer
-      %hr
+- if @credit_items.any?
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Time
+        %th Value
+        %th Category
+        %th Note
+    %tbody
+      = render partial: "credit_item_row", collection: @credit_items, as: :credit_item
+  .text-center
+    = will_paginate @credit_items
 
-      %h4 Add entry
-      = render partial: 'form', locals: {customer: @customer, credit_item: @new_credit_item}
+- else
+  %h4 No entries yet
+
+- if can? :manage, @customer
+  %hr
+  %h4 Add entry
+  = render partial: 'form', locals: {customer: @customer, credit_item: @new_credit_item}
 
 = render partial: 'read_only_modal'

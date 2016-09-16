@@ -1,9 +1,8 @@
-.row
-  .columns.large-12
-    - if @categories.any?
-      %ul.panel
-        - @categories.each do |c|
-          %li= c.name
-    - else
-      %h2 No categories yet
-    = link_to "Add Category", {action: :new}, class: 'button small'
+%h2 Categories
+- if @categories.any?
+  %ul.list-group
+    - @categories.each do |c|
+      %li.list-group-item= c.name
+- else
+  %h2 No categories yet
+= link_to "Add Category", {action: :new}, class: 'button small'
