@@ -15,3 +15,5 @@
 //= require jquery-ui
 //= require bootstrap-sprockets
 //= require layout
+//= require raphael
+//= require morris
