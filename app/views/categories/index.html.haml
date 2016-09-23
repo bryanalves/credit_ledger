@@ -2,7 +2,10 @@
 - if @categories.any?
   %ul.list-group
     - @categories.each do |c|
-      %li.list-group-item= c.name
+      %li.list-group-item
+        = c.name
+        = link_to c, action: :destroy, method: :delete do
+          %span.glyphicon.glyphicon-remove.pull-right
 - else
   %h2 No categories yet
 = link_to "Add Category", {action: :new}, class: 'button small'
