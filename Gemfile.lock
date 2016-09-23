@@ -55,7 +55,6 @@ GEM
     bullet (4.13.2)
       activesupport (>= 3.0.0)
       uniform_notifier (>= 1.6.0)
-    cancancan (1.9.2)
     capybara (2.4.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -155,6 +154,8 @@ GEM
     pry-rails (0.3.2)
       pry (>= 0.9.10)
     puma (3.6.0)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     quiet_assets (1.0.3)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
@@ -243,7 +244,6 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   bullet
-  cancancan (~> 1.9)
   capybara-webkit
   capybara_minitest_spec
   coffee-rails (~> 4.0.0)
@@ -267,6 +267,7 @@ DEPENDENCIES
   morrisjs-rails
   pry-rails
   puma
+  pundit
   quiet_assets
   rack-mini-profiler
   rails (= 4.2.7.1)

@@ -1,14 +1,14 @@
 class ApplicationController < ActionController::Base
   include Monban::ControllerHelpers
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+  include Pundit
   protect_from_forgery with: :exception
 
-  rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => exception.message
-  end
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-  def current_ability
-    @current_ability ||= Ability.new(current_user, params)
+  private
+
+  def user_not_authorized
+    flash[:alert] = 'You are not authorized to perform this action.'
+    redirect_to(request.referrer || root_path)
   end
 end

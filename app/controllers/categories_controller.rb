@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action -> { authorize! :manage, Category }
+  before_action -> { authorize Category, :manage? }
 
   def index
     @categories = Category.all

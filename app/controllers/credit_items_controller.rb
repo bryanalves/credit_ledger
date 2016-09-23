@@ -1,9 +1,12 @@
 class CreditItemsController < ApplicationController
   before_action :find_customer
-  before_action -> { authorize! :manage, @customer }, except: :index
-  before_action -> { authorize! :read, @customer }, only: :index
+  before_action -> { authorize @customer, :manage? }, except: :index
 
   def index
+    if !current_user.try(:admin?)
+      raise Pundit::NotAuthorizedError, 'invalid view token' unless params[:view_token] == @customer.view_token
+    end
+
     @new_credit_item = @customer.credit_items.build
     @view_qr_code =  RQRCode::QRCode.new(customer_credit_items_url(@customer, view_token: @customer.view_token),
                                          :size => 12,

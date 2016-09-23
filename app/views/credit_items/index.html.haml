@@ -20,7 +20,7 @@
 - else
   %h4 No entries yet
 
-- if can? :manage, @customer
+- if policy(@customer).manage?
   %hr
   %h4 Add entry
   = render partial: 'form', locals: {customer: @customer, credit_item: @new_credit_item}

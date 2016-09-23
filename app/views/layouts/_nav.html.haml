@@ -5,7 +5,7 @@
 
     #navbar.navbar-collapse.collapse
       %ul.nav.navbar-nav
-        - if can? :manage, Customer
+        - if policy(Customer).manage?
           %li= link_to "Manage Customers", customers_path
       .navbar-form.navbar-left
         = text_field :search, :term, class: 'header_customer_autocomplete', placeholder: 'Customer quick search'
@@ -17,9 +17,9 @@
               Admin
               %span.caret
             %ul.dropdown-menu
-              - if can? :manage, Category
+              - if policy(Category).manage?
                 %li= link_to "Manage entry categories", categories_path
-              - if can? :manage, User
+              - if policy(User).manage?
                 %li= link_to "Manage users", users_path
         - if signed_in?
           %li= link_to "Sign out", session_path, method: :delete

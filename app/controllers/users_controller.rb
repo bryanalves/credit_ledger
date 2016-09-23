@@ -1,5 +1,5 @@
 class UsersController < AuthorizedController
-  before_action -> { authorize! :manage, User }
+  before_action -> { authorize User, :manage? }
 
   def new
     @user = User.new
