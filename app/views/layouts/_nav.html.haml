@@ -8,7 +8,8 @@
         - if policy(Customer).manage?
           %li= link_to "Manage Customers", customers_path
       .navbar-form.navbar-left
-        = text_field :search, :term, class: 'header_customer_autocomplete', placeholder: 'Customer quick search'
+        .form-group
+          = text_field :search, :term, class: 'header_customer_autocomplete form-control', placeholder: 'Customer quick search'
 
       %ul.nav.navbar-nav.navbar-right
         - if current_user.try!(:admin?)
