@@ -6,6 +6,10 @@ class CreditItem < ActiveRecord::Base
   validates :category_id, presence: true
   validates :value, presence: true
 
+  def category_name
+    category.try!(:name) || 'Deleted Category'
+  end
+
   def self.balance
     sum(:value)
   end
