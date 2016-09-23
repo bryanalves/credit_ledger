@@ -1,0 +1,10 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th Email
+  %tbody
+    = render partial: "user_row", collection: @users, as: :user
+  .text-center
+    = will_paginate @users
+
+= link_to "Add User", {action: :new}, class: 'button small'
