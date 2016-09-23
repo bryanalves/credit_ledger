@@ -1,5 +1,10 @@
-.panel.panel-default
+.panel.panel-green
   .panel-heading
-    %h4 Credit Summary
-  .panel-body
-    %p Total outstanding balance: #{number_to_currency @balance}
+    .row
+      .col-xs-3
+        = icon('money', class: 'fa-5x')
+      .col-xs-9.text-right
+        .huge
+          #{number_to_currency @balance}
+        %p
+          Total outstanding
