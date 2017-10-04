@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.7.1'
+gem 'rails', '5.1.4'
 
 # Rails
 gem 'yajl-ruby'
@@ -9,12 +9,11 @@ gem 'yajl-ruby'
 gem 'stamp'
 
 # Database
-gem 'foreigner'
 gem 'sqlite3'
 gem 'will_paginate'
 
 # Assets
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass', '~> 4.6.2'
 gem 'haml', '4.0.0'
@@ -42,7 +41,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'factory_girl_rails'
   gem 'foreman', require: false
-  gem 'quiet_assets'
   gem 'rack-mini-profiler'
   gem 'rb-fsevent'
   gem 'puma'

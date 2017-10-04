@@ -14,7 +14,7 @@ class CustomersControllerTest < ActionController::TestCase
     it "should return users" do
       expected_record = FactoryGirl.create(:customer, first_name: 'PASS')
       expected = {value: expected_record.id, label: expected_record.name}.stringify_keys
-      get :search, term: 'PASS'
+      get :search, params: {term: 'PASS'}
       JSON.parse(response.body).must_equal [expected]
     end
   end
