@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '5.1.6'
+gem 'rails', '5.1.6.2'
 
 # Rails
 gem 'yajl-ruby'
