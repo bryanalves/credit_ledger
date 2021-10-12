@@ -165,7 +165,7 @@ GEM
       warden
     morrisjs-rails (0.5.1.2)
       railties (> 3.1, < 6)
-    nio4r (2.5.5)
+    nio4r (2.5.8)
     nokogiri (1.11.4)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
@@ -175,7 +175,7 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
-    puma (4.3.8)
+    puma (4.3.9)
       nio4r (~> 2.0)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
