@@ -147,7 +147,7 @@ GEM
       nokogiri (~> 1)
       rake
     mini_mime (1.0.2)
-    mini_portile2 (2.5.1)
+    mini_portile2 (2.6.1)
     minitest (5.14.3)
     minitest-reporters (1.0.5)
       ansi
@@ -166,8 +166,8 @@ GEM
     morrisjs-rails (0.5.1.2)
       railties (> 3.1, < 6)
     nio4r (2.5.8)
-    nokogiri (1.11.4)
-      mini_portile2 (~> 2.5.0)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     pry (0.10.1)
       coderay (~> 1.1.0)
