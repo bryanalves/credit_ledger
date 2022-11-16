@@ -5,6 +5,9 @@ gem 'rails', '5.2.4.4'
 # Rails
 gem 'yajl-ruby'
 
+gem 'globalid', '~> 1.0'
+gem 'bigdecimal', '1.3.5'
+
 # Misc
 gem 'stamp'
 
@@ -38,7 +41,6 @@ gem 'rqrcode_png'
 group :development do
   gem 'active_record_query_trace'
   gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'factory_girl_rails'
   gem 'foreman', require: false
   gem 'rack-mini-profiler'
