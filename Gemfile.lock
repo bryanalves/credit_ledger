@@ -174,7 +174,7 @@ GEM
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     racc (1.6.1)
-    rack (2.2.4)
+    rack (2.2.6.2)
     rack-mini-profiler (0.10.7)
       rack (>= 1.2.0)
     rack-test (2.0.2)
