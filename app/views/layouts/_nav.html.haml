@@ -17,7 +17,7 @@
           = text_field :search, :term, class: 'header_customer_autocomplete form-control', placeholder: 'Customer quick search'
 
       %ul.nav.navbar-nav.navbar-right
-        - if current_user.try!(:admin?)
+        - if current_user.try(:admin?)
           %li.dropdown
             %a.dropdown-toggle{role: 'button', 'aria-haspopup' => 'true', 'aria-expanded' => false, data: {toggle: 'dropdown'}}
               Admin
