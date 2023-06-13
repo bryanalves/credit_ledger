@@ -4,7 +4,7 @@ class HighestBalancesTest < ActiveSupport::TestCase
   subject { HighestBalances }
   describe '#call' do
     it 'returns nothing by default' do
-      subject.call.must_equal({})
+      _(subject.call).must_equal({})
     end
 
     it 'returns 1 transaction for 1 customer' do
@@ -13,7 +13,7 @@ class HighestBalancesTest < ActiveSupport::TestCase
         credit_item.customer => credit_item.value
       }
 
-      subject.call.must_equal expected
+      _(subject.call).must_equal expected
     end
 
     it 'returns 2 transactions for 2 customers' do
@@ -25,7 +25,7 @@ class HighestBalancesTest < ActiveSupport::TestCase
         credit_item2.customer => credit_item2.value
       }
 
-      subject.call.must_equal expected
+      _(subject.call).must_equal expected
     end
 
     it 'returns sums of transactions for the same user' do
@@ -36,7 +36,7 @@ class HighestBalancesTest < ActiveSupport::TestCase
         credit_item.customer => BigDecimal.new('4.0')
       }
 
-      subject.call.must_equal expected
+      _(subject.call).must_equal expected
     end
   end
 end

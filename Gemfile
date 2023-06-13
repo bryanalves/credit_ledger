@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '5.2.8.1'
+gem 'rails', '6.1.7.2'
 
 # Rails
 gem 'yajl-ruby'
@@ -43,7 +43,6 @@ group :development do
   gem 'better_errors'
   gem 'factory_girl_rails'
   gem 'foreman', require: false
-  gem 'rack-mini-profiler'
   gem 'rb-fsevent'
   gem 'puma'
 end

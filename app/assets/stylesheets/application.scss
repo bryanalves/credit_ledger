@@ -1,5 +1,5 @@
-//= require jquery-ui
-//= require morris
+@import 'morrisjs-rails';
+@import 'jquery-ui';
 //= require bootstrap_sb_admin
 @import "bootstrap-sprockets";
 @import "bootstrap";

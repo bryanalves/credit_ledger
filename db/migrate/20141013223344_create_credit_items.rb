@@ -1,4 +1,4 @@
-class CreateCreditItems < ActiveRecord::Migration
+class CreateCreditItems < ActiveRecord::Migration[4.2]
   def change
     create_table :credit_items do |t|
       t.belongs_to :user
