@@ -1,6 +1,6 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :customer do
     sequence(:email) {|n| "user_#{n}@example.com"}
     sequence(:first_name) {|n| "first#{n}"}

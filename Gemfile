@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '6.1.7.2'
+gem 'rails', '6.1.7.3'
 
 # Rails
 gem 'yajl-ruby'
@@ -41,7 +41,7 @@ gem 'rqrcode_png'
 group :development do
   gem 'active_record_query_trace'
   gem 'better_errors'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'foreman', require: false
   gem 'rb-fsevent'
   gem 'puma'
@@ -52,10 +52,10 @@ group :test do
   gem 'webdrivers'
   gem 'selenium-webdriver', '4.9.0'
   gem 'database_cleaner'
-  gem 'factory_girl'
+  gem 'factory_bot'
   gem 'minitest'
   gem 'minitest-spec-rails'
-  gem 'mocha', require: 'mocha/setup'
+  gem 'mocha'
   gem 'timecop'
   gem 'minitest-reporters'
 end

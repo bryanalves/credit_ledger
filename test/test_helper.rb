@@ -2,7 +2,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
-FactoryGirl.find_definitions
+FactoryBot.find_definitions
 
 Monban.test_mode!
 

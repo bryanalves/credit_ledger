@@ -1,10 +1,10 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :credit_item do
     user
     customer
     category
-    value 2.0
+    value { 2.0 }
   end
 end

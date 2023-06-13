@@ -1,10 +1,10 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     sequence(:email) {|n| "user_#{n}@example.com" }
-    password_digest "blah"
+    password_digest { "blah" }
 
     factory :admin_user do
-      role 'admin'
+      role { 'admin' }
     end
   end
 end

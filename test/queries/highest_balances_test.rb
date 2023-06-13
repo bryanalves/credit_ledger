@@ -8,7 +8,7 @@ class HighestBalancesTest < ActiveSupport::TestCase
     end
 
     it 'returns 1 transaction for 1 customer' do
-      credit_item = FactoryGirl.create(:credit_item)
+      credit_item = FactoryBot.create(:credit_item)
       expected = {
         credit_item.customer => credit_item.value
       }
@@ -17,8 +17,8 @@ class HighestBalancesTest < ActiveSupport::TestCase
     end
 
     it 'returns 2 transactions for 2 customers' do
-      credit_item = FactoryGirl.create(:credit_item)
-      credit_item2 = FactoryGirl.create(:credit_item)
+      credit_item = FactoryBot.create(:credit_item)
+      credit_item2 = FactoryBot.create(:credit_item)
 
       expected = {
         credit_item.customer => credit_item.value,
@@ -29,8 +29,8 @@ class HighestBalancesTest < ActiveSupport::TestCase
     end
 
     it 'returns sums of transactions for the same user' do
-      credit_item = FactoryGirl.create(:credit_item)
-      FactoryGirl.create(:credit_item, customer: credit_item.customer)
+      credit_item = FactoryBot.create(:credit_item)
+      FactoryBot.create(:credit_item, customer: credit_item.customer)
 
       expected = {
         credit_item.customer => BigDecimal.new('4.0')

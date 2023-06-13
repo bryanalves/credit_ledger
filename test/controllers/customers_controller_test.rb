@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CustomersControllerTest < ActionController::TestCase
   setup do
-    sign_in FactoryGirl.create(:admin_user)
+    sign_in FactoryBot.create(:admin_user)
   end
 
   describe "#search" do
@@ -12,7 +12,7 @@ class CustomersControllerTest < ActionController::TestCase
     end
 
     it "should return users" do
-      expected_record = FactoryGirl.create(:customer, first_name: 'PASS')
+      expected_record = FactoryBot.create(:customer, first_name: 'PASS')
       expected = {value: expected_record.id, label: expected_record.name}.stringify_keys
       get :search, params: {term: 'PASS'}
       _(JSON.parse(response.body)).must_equal [expected]
