@@ -49,7 +49,8 @@ end
 
 group :test do
   gem 'capybara_minitest_spec'
-  gem 'capybara-webkit'
+  gem 'webdrivers'
+  gem 'selenium-webdriver', '4.9.0'
   gem 'database_cleaner'
   gem 'factory_girl'
   gem 'minitest'
